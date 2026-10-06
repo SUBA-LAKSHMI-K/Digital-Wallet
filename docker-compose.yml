@@ -1,15 +1,13 @@
 services:
 
   mysql:
-    build:
-      context: ./database
-      dockerfile: Dockerfile
+    image: subalakx/digital-wallet-database:latest
 
     container_name: digital-wallet-mysql
 
     environment:
-      MYSQL_ROOT_PASSWORD: Root@12345
-      MYSQL_DATABASE: digital_wallet
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
     ports:
       - "3306:3306"
@@ -25,9 +23,7 @@ services:
 
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: subalakx/digital-wallet-backend:latest
 
     container_name: digital-wallet-backend
 
@@ -46,9 +42,7 @@ services:
 
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: subalakx/digital-wallet-frontend:latest
 
     container_name: digital-wallet-frontend
 

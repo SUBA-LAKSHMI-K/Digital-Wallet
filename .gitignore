@@ -4,3 +4,7 @@ target/
 .idea/
 .vscode/
 *.log
+.env
+.env.local
+frontend/.env
+frontend/.env.local
